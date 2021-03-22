@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{07C01712-1EF6-4957-AAB3-9F83974EB8CC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleAppPDF</RootNamespace>
-    <AssemblyName>ConsoleAppPDF</AssemblyName>
+    <RootNamespace>DocFactory</RootNamespace>
+    <AssemblyName>DocFactory</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -63,12 +63,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PdfFactory.cs" />
+    <Compile Include="ColumnDefinition.cs" />
+    <Compile Include="DocFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="DocFactory.PdfFactory.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

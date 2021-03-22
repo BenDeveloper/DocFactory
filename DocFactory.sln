@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppPDF", "ConsoleAppPDF.csproj", "{07C01712-1EF6-4957-AAB3-9F83974EB8CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFactory", "DocFactory.csproj", "{07C01712-1EF6-4957-AAB3-9F83974EB8CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

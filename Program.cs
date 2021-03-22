@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using ConsoleAppPDF;
+using DocFactory;
 
-namespace HelloWorld
+namespace DocFactory
 {
     /// <summary>
     /// This sample is the obligatory Hello World program.
@@ -14,7 +14,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             FileInfo file = new FileInfo("C:/temp/Test1.pdf");
-            CreatePDFwithMigraDoc(file.FullName);
+            SetPDF(file.FullName);
 
             if (file.Exists)
             {
@@ -22,28 +22,28 @@ namespace HelloWorld
             }
         }
 
-        private static void CreatePDFwithMigraDoc(string fullName)
+        private static void SetPDF(string fullName)
         {
-            // Columns list
-            List<ColumnDefinition> c = new List<ColumnDefinition>();
-            c.Add(new ColumnDefinition() { Name = "Name", Size = 2.5 });
-            c.Add(new ColumnDefinition() { Name = "number", Size = 2.5 });
-            c.Add(new ColumnDefinition() { Name = "Color", Size = 2.5 });
+            List<ColumnDefinition> c = new List<ColumnDefinition>
+            {
+                new ColumnDefinition() { Name = "Name", Size = 2.5 },
+                new ColumnDefinition() { Name = "Number", Size = 2.5 },
+                new ColumnDefinition() { Name = "Color", Size = 2.5 }
+            };
 
-            // Row list
             List<string[]> r = new List<string[]>();
             r.Add(new string[]
             {
                     "Tom", "1", "Blue" 
             });
 
-            // Create table
-            Stream s = PdfFactory.TableToPDF(c, r, "Test Ben");
+            var f = new DocFactory(c, r, "Test Ben");
+            Stream s = f.GetPDFStream();
 
             PdfSharp.Pdf.PdfDocument doc = new PdfSharp.Pdf.PdfDocument(s);
             doc.AddPage();
 
-            doc.Save(fullName);
+            doc.Save(s);
         }
     }
 }
